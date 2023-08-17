@@ -1,0 +1,5 @@
+@layer components{
+    .homeContainer{
+        @apply w-full min-h-[calc(100vh-64px)] md:min-h-screen py-4
+    }
+}
