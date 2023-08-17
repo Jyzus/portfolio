@@ -59,7 +59,9 @@ export const Presentation = () => {
               <ApperText text="proyectos participados" className="text-small" />
             </div>
           </div>
-          <button className="btn btn-principal">Descargar CV</button>
+          <a className="btn btn-principal" href="/pdf/CV.pdf" target="_black">
+            Descargar CV
+          </a>
         </div>
       </div>
     </>
