@@ -1,11 +1,11 @@
-import { BiSolidMoon, BiWorld, BiMenu } from "react-icons/bi";
-import { Link, Outlet } from "react-router-dom";
-import { Links } from "./Links";
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ScrollToSection } from "./ScrollToSection";
+import { useState } from "react";
+import { BiMenu } from "react-icons/bi";
+import { Link, Outlet } from "react-router-dom";
 import { Pop } from "../../animated/Pop";
-import { ContactHelper } from "../../helpers/ContactHelper";
+import { ContactHelper } from "../../seeds/ContactHelper";
+import { Links } from "./Links";
+import { ScrollToSection } from "./ScrollToSection";
 // import { ReactDOM } from "react";
 
 export const Sidebar = () => {
@@ -48,7 +48,7 @@ export const Sidebar = () => {
             </span>
           </Link>
           <div className={`flex-center-center gap-4 text-lg duration-200`}>
-            <button className="p-2 hover:bg-principal-500 rounded-full duration-150">
+            {/* <button className="p-2 hover:bg-principal-500 rounded-full duration-150">
               <BiSolidMoon />
             </button>
             <div className="relative flex-center-center p-2 hover:bg-principal-500 cursor-pointer rounded-full duration-150 group/languaje">
@@ -62,7 +62,7 @@ export const Sidebar = () => {
                   xd
                 </button>
               </div>
-            </div>
+            </div> */}
             <button
               className={`${
                 navbar ? "rotate-90 bg-principal-500" : "rotate-0"
@@ -93,7 +93,7 @@ export const Sidebar = () => {
         </motion.ul>
         <div className="flex-center-center gap-8">
           {ContactHelper.map((contact) => (
-            <Pop width={32} height={32}>
+            <Pop width={32} height={32} key={contact.link}>
               <a href={contact.link} target="_blank" className="w-full">
                 <img
                   src={contact.icon}

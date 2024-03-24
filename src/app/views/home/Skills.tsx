@@ -11,7 +11,7 @@ export const Skills = () => {
         </Reveal>
         <br />
         <ApperText
-          text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae numquam doloremque molestiae id molestias cumque perspiciatis voluptas, animi obcaecati? Expedita ab vitae id accusamus ducimus architecto beatae itaque blanditiis pariatur."
+          text="En mi trayectoria profesional, he cultivado una sólida comprensión y habilidad práctica en una variedad de tecnologías relevantes para mi campo. Acontinuación podrán ver cuáles son:"
           className="text-small md:text-body text-center"
           delay={0.01}
         />

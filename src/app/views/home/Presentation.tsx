@@ -2,14 +2,15 @@ import { ApperText } from "../../animated/ApperText";
 import { DivUp } from "../../animated/DivUp";
 import { TextFalling } from "../../animated/TextFalling";
 import { ImgLogo } from "../../components/cards/ImgLogo";
-import { ImgLogoItems } from "../../helpers/ImgLogoItems";
+import Container from "../../layouts/Container";
+import { ImgLogoItems } from "../../seeds/ImgLogoItems";
 
 export const Presentation = () => {
   return (
     <>
-      <div
+      <Container
         id="aboutMe"
-        className="homeContainer flex items-center justify-evenly flex-col"
+        className="flex items-center justify-evenly flex-col"
       >
         <div className="flex-center-center flex-col xl:flex-row gap-12 px-4">
           <DivUp>
@@ -51,8 +52,8 @@ export const Presentation = () => {
         <div className="flex items-center flex-col gap-4 sm:gap-0 sm:flex-row justify-evenly w-full">
           <div className="flex-center-center text-center gap-5 sm:gap-20">
             <div>
-              <TextFalling text="+ de 7" className="h1" />
-              <ApperText text="meses de experiencia" className="text-small" />
+              <TextFalling text="1.5" className="h1" />
+              <ApperText text="años de experiencia" className="text-small" />
             </div>
             <div>
               <TextFalling text="2" className="h1" />
@@ -63,7 +64,7 @@ export const Presentation = () => {
             Descargar CV
           </a>
         </div>
-      </div>
+      </Container>
     </>
   );
 };

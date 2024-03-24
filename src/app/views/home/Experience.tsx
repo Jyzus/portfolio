@@ -1,7 +1,7 @@
 import { ApperText } from "../../animated/ApperText";
 import { Reveal } from "../../animated/Reveal";
 import { CardExperiencias } from "../../components/cards/CardExperiencias";
-import { ExperienceHelper } from "../../helpers/ExperienceHelper";
+import { ExperienceHelper } from "../../seeds/ExperienceHelper";
 import { IExperience } from "../../interfaces/Experience.interface";
 
 export const Experience = () => {

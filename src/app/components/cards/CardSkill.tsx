@@ -1,6 +1,6 @@
 import { Reveal } from "../../animated/Reveal";
 import { TextFalling } from "../../animated/TextFalling";
-import { SkillsHelper } from "../../helpers/SkillsHelper";
+import { SkillsHelper } from "../../seeds/SkillsHelper";
 
 export const CardSkill = () => {
   return (

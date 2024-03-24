@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ApperText } from "../../animated/ApperText";
 import { Reveal } from "../../animated/Reveal";
 import { CardProyect } from "../../components/cards/CardProyect";
-import { ProyectHelper } from "../../helpers/ProyectsHelper";
+import { ProyectHelper } from "../../seeds/ProyectsHelper";
 import { AnimatePresence, motion } from "framer-motion";
 import { IProyect } from "../../interfaces/Proyect.interface";
 
