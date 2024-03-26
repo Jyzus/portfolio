@@ -11,8 +11,8 @@ export const Presentation = () => {
     <>
       <Container
         id="aboutMe"
-        classNameContainer="flex items-center justify-evenly flex-col relative"
-        className="bg-gray-900 text-white"
+        classNameContainer="flex items-center justify-evenly flex-col "
+        className="bg-gray-900 text-white relative"
       >
         <BackgroundBeams />
         <div className="flex-center-center flex-col xl:flex-row gap-12 px-4">
