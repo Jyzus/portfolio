@@ -1,4 +1,5 @@
 import { ApperText } from "../../animated/ApperText";
+import { BackgroundBeams } from "../../animated/BackgroundBeams";
 import { DivUp } from "../../animated/DivUp";
 import { TextFalling } from "../../animated/TextFalling";
 import { ImgLogo } from "../../components/cards/ImgLogo";
@@ -10,8 +11,10 @@ export const Presentation = () => {
     <>
       <Container
         id="aboutMe"
-        className="flex items-center justify-evenly flex-col"
+        classNameContainer="flex items-center justify-evenly flex-col relative"
+        className="bg-gray-900 text-white"
       >
+        <BackgroundBeams />
         <div className="flex-center-center flex-col xl:flex-row gap-12 px-4">
           <DivUp>
             <>
@@ -49,7 +52,7 @@ export const Presentation = () => {
             />
           </div>
         </div>
-        <div className="flex items-center flex-col gap-4 sm:gap-0 sm:flex-row justify-evenly w-full">
+        <div className="flex items-center flex-col gap-4 sm:gap-0 sm:flex-row justify-evenly w-full z-50">
           <div className="flex-center-center text-center gap-5 sm:gap-20">
             <div>
               <TextFalling text="1.5" className="h1" />

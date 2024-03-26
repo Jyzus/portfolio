@@ -1,16 +1,21 @@
 interface Props {
   children: JSX.Element | JSX.Element[];
   className?: string;
+  classNameContainer?: string;
   id?: string;
 }
 
-const Container = ({ className, children, id }: Props) => {
+const Container = ({ className, children, id, classNameContainer }: Props) => {
   return (
     <div
-      className={`${className} container mx-auto px-4 w-full min-h-[calc(100vh-64px)] md:min-h-screen py-4`}
+      className={`${className} w-full min-h-[calc(100vh-64px)] md:min-h-screen `}
       id={id}
     >
-      {children}
+      <div
+        className={`${classNameContainer} container mx-auto w-full min-h-[calc(100vh-64px)] md:min-h-screen px-4 pb-4 pt-20 md:pt-4 `}
+      >
+        {children}
+      </div>
     </div>
   );
 };

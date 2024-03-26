@@ -16,7 +16,7 @@ export const Reveal = ({ children, className, delay }: Props) => {
     if (isInView) {
       mainContorls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, mainContorls]);
 
   return (
     <div ref={divRef} className={`${className} overflow-hidden`}>

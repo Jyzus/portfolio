@@ -48,21 +48,6 @@ export const Sidebar = () => {
             </span>
           </Link>
           <div className={`flex-center-center gap-4 text-lg duration-200`}>
-            {/* <button className="p-2 hover:bg-principal-500 rounded-full duration-150">
-              <BiSolidMoon />
-            </button>
-            <div className="relative flex-center-center p-2 hover:bg-principal-500 cursor-pointer rounded-full duration-150 group/languaje">
-              <BiWorld />
-              <div className="absolute top-full invisible group-hover/languaje:visible">
-                <div
-                  className="w-2 h-2 bg-principal-500 m-auto"
-                  style={{ clipPath: "polygon(50% 0, 100% 100%, 0% 100%)" }}
-                ></div>
-                <button className="bg-principal-500 hover:bg-red-400 w-10 py-1">
-                  xd
-                </button>
-              </div>
-            </div> */}
             <button
               className={`${
                 navbar ? "rotate-90 bg-principal-500" : "rotate-0"
@@ -86,6 +71,7 @@ export const Sidebar = () => {
               key={i.link}
               className=" w-full mb-4 group hover:bg-principal-500 duration-100"
               variants={item}
+              onClick={() => setNavbar(false)}
             >
               <ScrollToSection link={i.link} title={i.title} />
             </motion.li>
@@ -105,7 +91,7 @@ export const Sidebar = () => {
           ))}
         </div>
       </nav>
-      <main className="md:ml-48">
+      <main className="pt-4 md:pt-0 md:ml-48">
         <Outlet />
       </main>
     </>

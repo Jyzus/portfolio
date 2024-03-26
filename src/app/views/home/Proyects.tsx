@@ -5,14 +5,12 @@ import { CardProyect } from "../../components/cards/CardProyect";
 import { ProyectHelper } from "../../seeds/ProyectsHelper";
 import { AnimatePresence, motion } from "framer-motion";
 import { IProyect } from "../../interfaces/Proyect.interface";
+import Container from "../../layouts/Container";
 
 export const Proyects = () => {
   const [proyectSelected, setProyectSelected] = useState<null | IProyect>(null);
   return (
-    <div
-      id="proyects"
-      className="homeContainer relative flex flex-col justify-evenly"
-    >
+    <Container id="proyects" className="relative flex flex-col justify-evenly">
       <div className="max-w-3xl mx-auto">
         <Reveal className="border-b-4 border-principal-500">
           <h2 className="h1 sm:text-gigant text-center">
@@ -60,6 +58,7 @@ export const Proyects = () => {
                   <img
                     src={`/img/proyects/${img}`}
                     className="w-full object-cover"
+                    key={img}
                   />
                 ))}
               </div>
@@ -67,6 +66,6 @@ export const Proyects = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </Container>
   );
 };
