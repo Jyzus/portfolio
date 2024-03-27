@@ -12,7 +12,7 @@ const Container = ({ className, children, id, classNameContainer }: Props) => {
       id={id}
     >
       <div
-        className={`${classNameContainer} container mx-auto w-full min-h-[calc(100vh-64px)] md:min-h-screen px-4 pb-4 pt-20 md:pt-4 `}
+        className={`${classNameContainer} container mx-auto w-full min-h-[calc(100vh-64px)] md:min-h-screen px-4 pb-4 pt-20 `}
       >
         {children}
       </div>

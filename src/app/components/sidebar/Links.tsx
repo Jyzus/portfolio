@@ -1,24 +1,23 @@
-export const Links = () => {
-  return [
-    {
-      title: "Sobre mi",
-      link: "aboutMe",
-    },
-    {
-      title: "Proyectos",
-      link: "proyects",
-    },
-    {
-      title: "Experiencias",
-      link: "experience",
-    },
-    {
-      title: "Habilidades",
-      link: "skills",
-    },
-    // {
-    //   title: "Educación",
-    //   link: "#education",
-    // },
-  ];
-};
+export interface Link {
+  title: string;
+  link: string;
+}
+
+export const links: Link[] = [
+  {
+    title: "Sobre mi",
+    link: "aboutMe",
+  },
+  {
+    title: "Proyectos",
+    link: "proyects",
+  },
+  {
+    title: "Experiencias",
+    link: "experience",
+  },
+  {
+    title: "Habilidades",
+    link: "skills",
+  },
+];

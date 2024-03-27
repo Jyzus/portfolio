@@ -1,99 +1,50 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { BiMenu } from "react-icons/bi";
+import { GoMoon } from "react-icons/go";
+import { MdMenu } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
-import { Pop } from "../../animated/Pop";
-import { ContactHelper } from "../../seeds/ContactHelper";
-import { Links } from "./Links";
+import { links } from "./Links";
 import { ScrollToSection } from "./ScrollToSection";
-// import { ReactDOM } from "react";
+import { useState } from "react";
+import { clsx } from "clsx";
 
 export const Sidebar = () => {
-  const [navbar, setNavbar] = useState(false);
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
+  const [menu, setMenu] = useState(false);
+  const toggleDarkMode = () => {
+    document.documentElement.classList.toggle("dark");
   };
   return (
-    <>
-      <nav
-        className={`${
-          navbar ? "h-screen py-5" : "h-16 py-3"
-        } w-full md:w-48 fixed left-0 md:h-screen flex flex-col items-center justify-between md:py-5 bg-negativo text-white transition-all ease-in-out duration-300 overflow-hidden z-20`}
-      >
-        <div className="flex-center-between md:flex-col gap-4 w-full px-12 md:px-4">
-          <Link to="/" className="flex-center-center gap-2">
-            <img
-              src="/img/brand/logo-nobg.png"
-              alt="logo"
-              className="w-8 h-8"
-            />
-            <span className={`font-bold text-xl duration-200 font-raleway`}>
-              Jyzus
-            </span>
-          </Link>
-          <div className={`flex-center-center gap-4 text-lg duration-200`}>
-            <button
-              className={`${
-                navbar ? "rotate-90 bg-principal-500" : "rotate-0"
-              }  md:hidden right-4 rounded-full p-3 text-xl flex-center-center font-black duration-150`}
-              onClick={() => {
-                setNavbar(!navbar);
-              }}
-            >
-              <BiMenu />
-            </button>
-          </div>
-        </div>
-        <motion.ul
-          className="text-lg text-right w-full text-white"
-          variants={container}
-          initial="hidden"
-          animate="visible"
+    <div className="relative  dark:bg-gradient-to-tr dark:from-neutral-900 dark:to-neutral-800 dark:text-white">
+      <Link to="/" className="flex-center-center gap-2 fixed left-8 top-6 z-50">
+        <img src="/img/brand/logo-nobg.png" alt="logo" className="w-8 h-8" />
+      </Link>
+      <div className="fixed right-8 top-6 z-50">
+        <i className="cursor-pointer" onClick={toggleDarkMode}>
+          <GoMoon size={25} />
+        </i>
+      </div>
+      <motion.nav>
+        <motion.div
+          className={clsx(
+            "fixed z-[90] text-white p-2 transition-all duration-300 md:hidden",
+            {
+              "w-screen h-screen top-0 left-0 bg-white dark:bg-neutral-900 rounded-none":
+                menu,
+              "rounded-full bottom-2 left-4 bg-principal-500": !menu,
+            }
+          )}
+          onClick={() => setMenu(!menu)}
         >
-          {Links().map((i) => (
-            <motion.li
-              key={i.link}
-              className=" w-full mb-4 group hover:bg-principal-500 duration-100"
-              variants={item}
-              onClick={() => setNavbar(false)}
-            >
-              <ScrollToSection link={i.link} title={i.title} />
-            </motion.li>
-          ))}
-        </motion.ul>
-        <div className="flex-center-center gap-8">
-          {ContactHelper.map((contact) => (
-            <Pop width={32} height={32} key={contact.link}>
-              <a href={contact.link} target="_blank" className="w-full">
-                <img
-                  src={contact.icon}
-                  alt={contact.icon}
-                  className="w-full object-cover rounded-md"
-                />
-              </a>
-            </Pop>
-          ))}
-        </div>
-      </nav>
-      <main className="pt-4 md:pt-0 md:ml-48">
+          {!menu && <MdMenu size={30} />}
+          {menu && <ScrollToSection links={links} />}
+        </motion.div>
+        <ScrollToSection
+          links={links}
+          className="hidden md:block fixed bottom-6 left-8 z-[90]"
+        />
+      </motion.nav>
+      <main className="pt-4 md:pt-0 ">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };

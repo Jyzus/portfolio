@@ -48,7 +48,7 @@ export const Proyects = () => {
           <motion.div
             layoutId={proyectSelected.id}
             onClick={() => setProyectSelected(null)}
-            className="absolute w-full h-full bg-white"
+            className="absolute top-0 left-0 w-full h-full bg-white"
           >
             <div className="md:w-[1000px] mx-auto px-2">
               <p className="text-gigant mt-10">{proyectSelected.name}</p>
