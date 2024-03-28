@@ -1,16 +1,42 @@
-import { motion } from "framer-motion";
+import { Variants, motion } from "framer-motion";
+import { useState } from "react";
 import { GoMoon } from "react-icons/go";
-import { MdMenu } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
+import ButtonMenu from "./ButtonMenu";
 import { links } from "./Links";
 import { ScrollToSection } from "./ScrollToSection";
-import { useState } from "react";
 import { clsx } from "clsx";
 
 export const Sidebar = () => {
   const [menu, setMenu] = useState(false);
+  const toggleMenu = () => {
+    setMenu(!menu);
+  };
   const toggleDarkMode = () => {
     document.documentElement.classList.toggle("dark");
+  };
+
+  const menuVariants: Variants = {
+    open: (height = 1000) => ({
+      clipPath: `circle(${height * 2 + 200}px at 44px 94%)`,
+      position: "fixed",
+      transition: {
+        type: "spring",
+        stiffness: 20,
+        restDelta: 2,
+      },
+    }),
+    closed: {
+      clipPath: "circle(30px at 44px 95vh)",
+      position: "fixed",
+      cursor: "pointer",
+      transition: {
+        delay: 0.5,
+        type: "spring",
+        stiffness: 400,
+        damping: 40,
+      },
+    },
   };
   return (
     <div className="relative  dark:bg-gradient-to-tr dark:from-neutral-900 dark:to-neutral-800 dark:text-white">
@@ -22,25 +48,28 @@ export const Sidebar = () => {
           <GoMoon size={25} />
         </i>
       </div>
+      {/* //TODO: Este es el menu animado */}
       <motion.nav>
         <motion.div
+          initial={false}
+          animate={menu ? "open" : "closed"}
+          variants={menuVariants}
           className={clsx(
-            "fixed z-[90] text-white p-2 transition-all duration-300 md:hidden",
-            {
-              "w-screen h-screen top-0 left-0 bg-white dark:bg-neutral-900 rounded-none":
-                menu,
-              "rounded-full bottom-2 left-4 bg-principal-500": !menu,
-            }
+            "z-[90] top-0 left-0 bottom-0 w-screen md:w-72 h-screen bg-principal-500"
           )}
-          onClick={() => setMenu(!menu)}
+          onClick={() => toggleMenu()}
         >
-          {!menu && <MdMenu size={30} />}
-          {menu && <ScrollToSection links={links} />}
+          <ScrollToSection links={links} className="absolute left-8 top-16" />
+          <ButtonMenu
+            toggleMenu={toggleMenu}
+            className="absolute left-8 bottom-[3.5%]"
+          />
         </motion.div>
-        <ScrollToSection
+
+        {/* <ScrollToSection
           links={links}
-          className="hidden md:block fixed bottom-6 left-8 z-[90]"
-        />
+          className="hidden md:block fixed bottom-6 left-8 z-[90] text-principal-500"
+        /> */}
       </motion.nav>
       <main className="pt-4 md:pt-0 ">
         <Outlet />

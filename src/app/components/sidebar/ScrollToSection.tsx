@@ -14,8 +14,8 @@ export const ScrollToSection = ({ links, className }: Props) => {
     }
   };
   const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
+    closed: { opacity: 1, scale: 0 },
+    open: {
       opacity: 1,
       scale: 1,
       transition: {
@@ -26,24 +26,19 @@ export const ScrollToSection = ({ links, className }: Props) => {
   };
 
   const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
+    closed: { y: 20, opacity: 0 },
+    open: {
       y: 0,
       opacity: 1,
     },
   };
   return (
-    <motion.ul
-      variants={container}
-      className={className}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.ul variants={container} className={className}>
       {links.map((link) => (
         <motion.li key={link.title} variants={item}>
           <button
             onClick={() => scroll(link.link)}
-            className="inline-block py-1 w-full h-full text-left text-sm md:text-base text-principal-500 font-bold"
+            className="inline-block py-1 w-full h-full text-left font-bold"
           >
             <p>{link.title}</p>
           </button>

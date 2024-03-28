@@ -7,7 +7,7 @@ export const CardExperiencias = ({
   tech,
 }: IExperience) => {
   return (
-    <div className="max-w-sm h-80 bg-white border-2 rounded-lg drop-shadow-md p-4 flex flex-col justify-between">
+    <div className="max-w-sm h-80 bg-white text-black border-2 rounded-lg drop-shadow-md p-4 flex flex-col justify-between">
       <div className="h-full">
         <div className="flex items-center justify-between">
           <p className="h3">{title}</p>

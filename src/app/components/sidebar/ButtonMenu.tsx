@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 interface Props {
-  menu: boolean;
   toggleMenu: () => void;
+  className?: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -16,9 +16,9 @@ const Path = (props: any) => (
   />
 );
 
-const ButtonMenu = ({ toggleMenu }: Props) => {
+const ButtonMenu = ({ toggleMenu, className }: Props) => {
   return (
-    <button onClick={toggleMenu}>
+    <button onClick={() => toggleMenu()} className={className}>
       <svg width="23" height="23" viewBox="0 0 23 23">
         <Path
           variants={{
