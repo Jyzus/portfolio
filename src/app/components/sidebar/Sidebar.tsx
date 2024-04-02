@@ -55,7 +55,7 @@ export const Sidebar = () => {
           animate={menu ? "open" : "closed"}
           variants={menuVariants}
           className={clsx(
-            "z-[90] top-0 left-0 bottom-0 w-screen md:w-72 h-screen bg-principal-500"
+            "z-[60] top-0 left-0 bottom-0 w-screen md:w-72 h-screen bg-principal-500"
           )}
           onClick={() => toggleMenu()}
         >

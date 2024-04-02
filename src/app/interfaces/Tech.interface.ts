@@ -18,4 +18,6 @@ export type ITech =
   | "sass"
   | "tailwind"
   | "typescript"
-  | "vite";
+  | "vite"
+  | "firebase"
+  | "angular";

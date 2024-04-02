@@ -1,14 +1,22 @@
-import { useState } from "react";
-import { ApperText } from "../../animated/ApperText";
-import { Reveal } from "../../animated/Reveal";
-import { CardProyect } from "../../components/cards/CardProyect";
-import { ProyectHelper } from "../../seeds/ProyectsHelper";
 import { AnimatePresence, motion } from "framer-motion";
-import { IProyect } from "../../interfaces/Proyect.interface";
-import Container from "../../layouts/Container";
+import { useState } from "react";
+import { ApperText } from "../../../animated/ApperText";
+import { Reveal } from "../../../animated/Reveal";
+import { IProyect } from "../../../interfaces/Proyect.interface";
+import Container from "../../../layouts/Container";
+import { ProyectHelper } from "../../../seeds/ProyectsHelper";
+import { CardHoverEffect } from "./CardHoverEffect";
 
 export const Proyects = () => {
   const [proyectSelected, setProyectSelected] = useState<null | IProyect>(null);
+  const openModal = (proyect: IProyect) => {
+    document.body.classList.add("overflow-hidden");
+    setProyectSelected(proyect);
+  };
+  const closeModal = () => {
+    document.body.classList.remove("overflow-hidden");
+    setProyectSelected(null);
+  };
   return (
     <Container id="proyects" className="relative flex flex-col justify-evenly">
       <div className="max-w-3xl mx-auto">
@@ -24,36 +32,20 @@ export const Proyects = () => {
           delay={0.01}
         />
       </div>
-      <div
-        className={`grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 h-full px-8 gap-8 mt-8`}
-      >
-        {ProyectHelper.map((proyect, index) => (
-          <motion.div
-            onClick={() => setProyectSelected(proyect)}
-            key={proyect.name}
-            className="cursor-pointer"
-          >
-            <Reveal key={proyect.name} delay={0.2 * index}>
-              <CardProyect
-                id={proyect.id}
-                img={proyect.banner}
-                title={proyect.name}
-              />
-            </Reveal>
-          </motion.div>
-        ))}
+      <div>
+        <CardHoverEffect items={ProyectHelper} setProyectSelected={openModal} />
       </div>
       <AnimatePresence>
         {proyectSelected && (
           <motion.div
             layoutId={proyectSelected.id}
-            onClick={() => setProyectSelected(null)}
-            className="absolute top-0 left-0 w-full h-full bg-white"
+            className="fixed flex items-center justify-center top-0 left-0 w-screen h-screen z-[60] bg-[#000000aa]"
+            onClick={closeModal}
           >
-            <div className="md:w-[1000px] mx-auto px-2">
+            <div className="container max-h-[90vh] overflow-auto bg-white rounded-lg p-4 text-black mx-auto">
               <p className="text-gigant mt-10">{proyectSelected.name}</p>
-              <p className="mt-4">{proyectSelected.description}</p>
-              <div className="w-full max-h-[800px] overflow-y-auto">
+              <p className="mt-4 font-medium">{proyectSelected.description}</p>
+              <div className="">
                 {proyectSelected.imgs.map((img) => (
                   <img
                     src={`/img/proyects/${img}`}

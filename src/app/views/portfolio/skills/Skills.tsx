@@ -1,6 +1,6 @@
-import { ApperText } from "../../animated/ApperText";
-import { Reveal } from "../../animated/Reveal";
-import { CardSkill } from "../../components/cards/CardSkill";
+import { ApperText } from "../../../animated/ApperText";
+import { Reveal } from "../../../animated/Reveal";
+import { CardSkill } from "../../../components/cards/CardSkill";
 
 export const Skills = () => {
   return (

@@ -4,6 +4,7 @@ type Props = {
   img: string;
   title: string;
   id: string;
+  link?: string;
 };
 
 export const CardProyect = ({ img, title, id }: Props) => {

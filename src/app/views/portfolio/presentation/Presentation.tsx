@@ -1,9 +1,9 @@
-import { ApperText } from "../../animated/ApperText";
-import { DivUp } from "../../animated/DivUp";
-import { TextFalling } from "../../animated/TextFalling";
-import { ImgLogo } from "../../components/cards/ImgLogo";
-import Container from "../../layouts/Container";
-import { ImgLogoItems } from "../../seeds/ImgLogoItems";
+import { ApperText } from "../../../animated/ApperText";
+import { DivUp } from "../../../animated/DivUp";
+import { TextFalling } from "../../../animated/TextFalling";
+import { ImgLogo } from "../../../components/cards/ImgLogo";
+import Container from "../../../layouts/Container";
+import { ImgLogoItems } from "../../../seeds/ImgLogoItems";
 
 export const Presentation = () => {
   return (
