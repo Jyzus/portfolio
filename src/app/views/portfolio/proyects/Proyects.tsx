@@ -45,6 +45,14 @@ export const Proyects = () => {
             <div className="container max-h-[90vh] overflow-auto bg-white rounded-lg p-4 text-black mx-auto">
               <p className="text-gigant mt-10">{proyectSelected.name}</p>
               <p className="mt-4 font-medium">{proyectSelected.description}</p>
+              <div className="w-full flex gap-2 my-8">
+                {proyectSelected.techs.map((tech) => (
+                  <img
+                    src={`/img/icons/${tech}.svg`}
+                    className="w-6 h-6 object-cover"
+                  />
+                ))}
+              </div>
               <div className="">
                 {proyectSelected.imgs.map((img) => (
                   <img
